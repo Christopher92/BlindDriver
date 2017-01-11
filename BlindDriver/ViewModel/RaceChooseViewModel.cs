@@ -13,7 +13,6 @@ namespace BlindDriver.ViewModel
 
         static RaceChooseViewModel()
         {
-
             Races = new List<Race>
             {
                 new Race

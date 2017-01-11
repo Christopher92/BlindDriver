@@ -48,6 +48,7 @@
     </Compile>
     <Compile Include="Resources\TranslateExtension.cs" />
     <Compile Include="Services\IAudio.cs" />
+    <Compile Include="Services\IFile.cs" />
     <Compile Include="Services\ITextToSpeech.cs" />
     <Compile Include="ViewModel\InstructionViewModel.cs" />
     <Compile Include="ViewModel\RaceViewModel.cs" />
