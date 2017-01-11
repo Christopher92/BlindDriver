@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using BlindDriver.Models;
 using BlindDriver.Resources;
 using Xamarin.Forms;
 using System.Linq;
+using System.Text;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace BlindDriver.ViewModel
 {
