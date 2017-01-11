@@ -16,7 +16,7 @@ namespace BlindDriver.Views
         {
             BindingContext = new InstructionViewModel();
             InitializeComponent();
-            DependencyService.Get<ITextToSpeech>().Speak("Instrukcja");
+            //DependencyService.Get<ITextToSpeech>().Speak("Instrukcja");
 
         }
 

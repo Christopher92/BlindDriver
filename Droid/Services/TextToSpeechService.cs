@@ -29,7 +29,7 @@ namespace BlindDriver.Droid
             else
             {
                 var p = new Dictionary<string, string>();
-                speaker.Speak(toSpeak, QueueMode.Flush, p);
+                speaker.Speak(toSpeak, QueueMode.Add, p);
             }
         }
 

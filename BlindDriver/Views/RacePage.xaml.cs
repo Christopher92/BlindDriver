@@ -23,9 +23,9 @@ namespace BlindDriver.Views
         }
         public RacePage(Race race)
         {
-            //BindingContext = new RaceViewModel();
-
             RaceViewModel.race = race;
+            BindingContext = new RaceViewModel();
+
             //MessagingCenter.Send<RacePage>(this, "Hi");
 
             InitializeComponent();

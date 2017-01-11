@@ -11,41 +11,31 @@
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-                <Label.BindingContext>
-                    <local:RaceViewModel />
-                </Label.BindingContext>
+
             </Label>
             <Label Text="{Binding AngleText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-                <Label.BindingContext>
-                    <local:RaceViewModel />
-                </Label.BindingContext>
+
             </Label>
             <Label Text="{Binding TimerText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-                <Label.BindingContext>
-                    <local:RaceViewModel />
-                </Label.BindingContext>
+
             </Label>
             <Label Text="{Binding DrivenMetersText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-                <Label.BindingContext>
-                    <local:RaceViewModel />
-                </Label.BindingContext>
+
             </Label>
             <Label Text="{Binding CommandText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-                <Label.BindingContext>
-                    <local:RaceViewModel />
-                </Label.BindingContext>
+
             </Label>
         </StackLayout>
     </ContentPage.Content>

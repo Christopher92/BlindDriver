@@ -12,6 +12,7 @@ namespace BlindDriver.ViewModel
 {
     public class RaceViewModel : INotifyPropertyChanged
     {
+        public static bool isBound { get; set; }
         public static Race race { get; set; }
 
         double x, y, z, dtimer = 0;
@@ -79,27 +80,28 @@ namespace BlindDriver.ViewModel
 
         public RaceViewModel()
         {
-            Device.StartTimer(TimeSpan.FromMilliseconds(5000), () =>
+
+            DependencyService.Get<ITextToSpeech>().Speak("Wybrałeś wyścig " + race.Name + ". Za 5 sekund nastąpi rozpoczęcie wyścigu.");
+            Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
-                //DependencyService.Get<ITextToSpeech>().Speak("Wybrałeś wyścig " + race.Name + ". Za 5 sekund nastąpi rozpoczęcie wyścigu.");
-                DependencyService.Get<ITextToSpeech>().Speak("TEST");
+                int timer = 5;
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
+                {
+                    if (timer > 0)
+                    {
+                        DependencyService.Get<ITextToSpeech>().Speak(timer.ToString());
+                        timer -= 1;
+                        return true;
+                    }
+                    else
+                    {
+                        DependencyService.Get<ITextToSpeech>().Speak("Start!");
+                        startRace();
+                        return false;
+                    }
+                });
+
                 return false;
-            });
-            int timer = 5;
-            Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
-            {
-                if (timer > 0)
-                {
-                    DependencyService.Get<ITextToSpeech>().Speak(timer.ToString());
-                    timer -= 1;
-                    return true;
-                }
-                else
-                {
-                    DependencyService.Get<ITextToSpeech>().Speak("Start!");
-                    startRace();
-                    return false;
-                }
             });
 
 
