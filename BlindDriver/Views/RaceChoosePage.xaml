@@ -7,11 +7,11 @@
     <CarouselPage.ItemTemplate>
         <DataTemplate>
             <ContentPage>
-                <!--<ContentPage.Padding>
+                <ContentPage.Padding>
                     <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
-                </ContentPage.Padding>-->
+                </ContentPage.Padding>
                 
-                <Grid RowSpacing="1" ColumnSpacing="1">
+                <Grid RowSpacing="15" ColumnSpacing="30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>

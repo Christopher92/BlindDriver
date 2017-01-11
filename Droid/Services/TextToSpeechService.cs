@@ -15,13 +15,14 @@ namespace BlindDriver.Droid
 
         public TextToSpeechService() { }
 
-        public void Speak(string text)
+        public void Speak(string text, bool? queueing = true)
         {
+            Android.Speech.Tts.QueueMode queueMode = queueing == true ? QueueMode.Add : QueueMode.Flush;
             var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
 
             var ctx = Forms.Context;
             toSpeak = text;
-            if(speaker == null)
+            if (speaker == null)
             {
                 speaker = new TextToSpeech(ctx, this);
                 //speaker.SetSpeechRate(2);
@@ -29,14 +30,14 @@ namespace BlindDriver.Droid
             else
             {
                 var p = new Dictionary<string, string>();
-                speaker.Speak(toSpeak, QueueMode.Add, p);
+                speaker.Speak(toSpeak, queueMode, p);
             }
         }
 
         #region IOnInitListener implementation
-        public void OnInit (OperationResult status)
+        public void OnInit(OperationResult status)
         {
-            if(status.Equals (OperationResult.Success))
+            if (status.Equals(OperationResult.Success))
             {
                 var p = new Dictionary<string, string>();
                 speaker.Speak(toSpeak, QueueMode.Flush, p);

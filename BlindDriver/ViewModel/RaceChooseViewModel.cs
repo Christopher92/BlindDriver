@@ -564,7 +564,7 @@ namespace BlindDriver.ViewModel
         {
             Race race = Races.Where(x => x.Id == carouselPageIndex + 1).First();
             DependencyService.Get<ITextToSpeech>().Speak(string.Format(Resource.RaceChooseDetails, 
-                race.Name, race.Difficulty, race.Length, race.BestTime=="" ? "Brak" : race.BestTime));
+                race.Name, race.Difficulty, race.Length, race.BestTime=="" ? "Brak" : race.BestTime),false);
         }
     }
 }
