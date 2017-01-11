@@ -98,7 +98,7 @@ namespace BlindDriver.ViewModel
             DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown, false);
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
-                DependencyService.Get<IAudio>().PlayMp3File(filename.mp3);
+                DependencyService.Get<IAudio>().PlayMp3File("car_start.mp3");
                 int timer = 3;
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
                 {
