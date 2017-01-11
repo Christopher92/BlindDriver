@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlindDriver.Models;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
+using BlindDriver.Models;
+using BlindDriver.Resources;
 
 namespace BlindDriver.ViewModel
 {
@@ -16,55 +12,547 @@ namespace BlindDriver.ViewModel
         static RaceChooseViewModel()
         {
 
-            Races = new ObservableCollection<Race>()
+            Races = new ObservableCollection<Race>
             {
-                new Race()
+                new Race
                 {
                     Id = 1,
-                    Name = "Race1",
+                    Name = "Pinamar",
+                    BestTime = "",
                     Length = 1000,
-                    Level = 3,
-                    ImageUrl = "T1.png",
-                    Turns = new List<Turn>()
+                    Difficulty = Resource.easy,
+                    ImageName = "trasa.png",
+                    Turns = new List<Turn>
                     {
-                        new Turn()
+                        new Turn
                         {
-                            TurnType = Enums.TurnTypeEnum.L3,
-                            OnMeter = 175
+                            TurnType = Resource.r3,
+                            OnMeter = 175,
+                            ImageName = "right3.png"
                         },
-                        new Turn()
+                        new Turn
                         {
-                            TurnType = Enums.TurnTypeEnum.L3,
-                            OnMeter = 325
+                            TurnType = Resource.r3,
+                            OnMeter = 325,
+                            ImageName = "right3.png"
                         },
-                        new Turn()
+                        new Turn
                         {
-                            TurnType = Enums.TurnTypeEnum.L3,
-                            OnMeter = 675
+                            TurnType = Resource.r3,
+                            OnMeter = 675,
+                            ImageName = "right3.png"
                         },
-                        new Turn()
+                        new Turn
                         {
-                            TurnType = Enums.TurnTypeEnum.L3,
-                            OnMeter = 825
+                            TurnType = Resource.r3,
+                            OnMeter = 825,
+                            ImageName = "right3.png"
                         }
                     }
                 },
-                new Race()
+                new Race
                 {
                     Id = 2,
-                    Name = "Race2",
-                    Length = 2000,
-                    Level = 8,
-                    ImageUrl =    "http://content.screencast.com/users/JamesMontemagno/folders/Jing/media/6b60d27e-c1ec-4fe6-bebe-7386d545bb62/2016-06-02_1051.png"
-
+                    Name = "Rio Gallegos",
+                    BestTime = "",
+                    Length = 1500,
+                    Difficulty = Resource.medium,
+                    ImageName =    "trasa2.png",
+                    Turns = new List<Turn>
+                    {
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 75,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 160,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 220,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 270,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 340,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 450,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 570,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 660,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 705,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 800,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 875,
+                            ImageName = "right2.png"
+                        }
+                    }
                 },
-                new Race()
+                new Race
                 {
                     Id = 3,
-                    Name = "Race3",
-                    Length = 1000,
-                    Level = 5,
-                    ImageUrl = "http://content.screencast.com/users/JamesMontemagno/folders/Jing/media/e8179889-8189-4acb-bac5-812611199a03/2016-06-02_1053.png"
+                    Name = "Gran Premio",
+                    BestTime = "",
+                    Length = 3000,
+                    Difficulty = Resource.hard,
+                    ImageName = "trasa3.png",
+                    Turns = new List<Turn>
+                    {
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 120,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l4,
+                            OnMeter = 300,
+                            ImageName = "left4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 550,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 650,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 720,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 820,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 900,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1000,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 1150,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 1300,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1400,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 1480,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l4,
+                            OnMeter = 1600,
+                            ImageName = "left4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 1800,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 1840,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 2100,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 2200,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 2300,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 2400,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 2550,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 2700,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 2800,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 2870,
+                            ImageName = "right3.png"
+                        }
+                    }
+                },
+                new Race
+                {
+                    Id = 4,
+                    Name = "Las Flores",
+                    BestTime = "",
+                    Length = 2200,
+                    Difficulty = Resource.hard,
+                    ImageName = "trasa4.png",
+                    Turns = new List<Turn>
+                    {
+                        new Turn
+                        {
+                            TurnType = Resource.l2,
+                            OnMeter = 120,
+                            ImageName = "left2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 300,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 550,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 650,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 720,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 820,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 900,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 1000,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 1150,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l5,
+                            OnMeter = 1300,
+                            ImageName = "left5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 1400,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 1480,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 1600,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1900,
+                            ImageName = "left3.png"
+                        }
+                    }
+                },
+                new Race
+                {
+                    Id = 5,
+                    Name = "Puerto Madero",
+                    BestTime = "",
+                    Length = 2800,
+                    Difficulty = Resource.extreme,
+                    ImageName = "trasa5.png",
+                    Turns = new List<Turn>
+                    {
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 120,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l4,
+                            OnMeter = 300,
+                            ImageName = "left4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 550,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 650,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 1000,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l5,
+                            OnMeter = 1060,
+                            ImageName = "left5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 1120,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 1200,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 1280,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1360,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1430,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 1490,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 1600,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r5,
+                            OnMeter = 1800,
+                            ImageName = "right5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 1840,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l5,
+                            OnMeter = 2100,
+                            ImageName = "left5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r2,
+                            OnMeter = 2200,
+                            ImageName = "right2.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 2300,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 2400,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r1,
+                            OnMeter = 2550,
+                            ImageName = "right1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 2700,
+                            ImageName = "left4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 2800,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l3,
+                            OnMeter = 2870,
+                            ImageName = "left3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 2100,
+                            ImageName = "right4.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l1,
+                            OnMeter = 2200,
+                            ImageName = "left1.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r3,
+                            OnMeter = 2300,
+                            ImageName = "right3.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.l5,
+                            OnMeter = 2400,
+                            ImageName = "left5.png"
+                        },
+                        new Turn
+                        {
+                            TurnType = Resource.r4,
+                            OnMeter = 2550,
+                            ImageName = "right4.png"
+                        }
+                    }
                 }
             };
 

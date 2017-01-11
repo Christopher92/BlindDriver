@@ -2363,55 +2363,97 @@ namespace BlindDriver.Droid
 			public const int icon = 2130837691;
 			
 			// aapt resource value: 0x7f0200bc
-			public const int mr_dialog_material_background_dark = 2130837692;
+			public const int left1 = 2130837692;
 			
 			// aapt resource value: 0x7f0200bd
-			public const int mr_dialog_material_background_light = 2130837693;
+			public const int left2 = 2130837693;
 			
 			// aapt resource value: 0x7f0200be
-			public const int mr_ic_audiotrack_light = 2130837694;
+			public const int left3 = 2130837694;
 			
 			// aapt resource value: 0x7f0200bf
-			public const int mr_ic_cast_dark = 2130837695;
+			public const int left4 = 2130837695;
 			
 			// aapt resource value: 0x7f0200c0
-			public const int mr_ic_cast_light = 2130837696;
+			public const int left5 = 2130837696;
 			
 			// aapt resource value: 0x7f0200c1
-			public const int mr_ic_close_dark = 2130837697;
+			public const int mr_dialog_material_background_dark = 2130837697;
 			
 			// aapt resource value: 0x7f0200c2
-			public const int mr_ic_close_light = 2130837698;
+			public const int mr_dialog_material_background_light = 2130837698;
 			
 			// aapt resource value: 0x7f0200c3
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837699;
+			public const int mr_ic_audiotrack_light = 2130837699;
 			
 			// aapt resource value: 0x7f0200c4
-			public const int mr_ic_media_route_connecting_mono_light = 2130837700;
+			public const int mr_ic_cast_dark = 2130837700;
 			
 			// aapt resource value: 0x7f0200c5
-			public const int mr_ic_media_route_mono_dark = 2130837701;
+			public const int mr_ic_cast_light = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int mr_ic_media_route_mono_light = 2130837702;
+			public const int mr_ic_close_dark = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int mr_ic_pause_dark = 2130837703;
+			public const int mr_ic_close_light = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int mr_ic_pause_light = 2130837704;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int mr_ic_play_dark = 2130837705;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837705;
 			
 			// aapt resource value: 0x7f0200ca
-			public const int mr_ic_play_light = 2130837706;
-			
-			// aapt resource value: 0x7f0200cc
-			public const int notification_template_icon_bg = 2130837708;
+			public const int mr_ic_media_route_mono_dark = 2130837706;
 			
 			// aapt resource value: 0x7f0200cb
-			public const int T1 = 2130837707;
+			public const int mr_ic_media_route_mono_light = 2130837707;
+			
+			// aapt resource value: 0x7f0200cc
+			public const int mr_ic_pause_dark = 2130837708;
+			
+			// aapt resource value: 0x7f0200cd
+			public const int mr_ic_pause_light = 2130837709;
+			
+			// aapt resource value: 0x7f0200ce
+			public const int mr_ic_play_dark = 2130837710;
+			
+			// aapt resource value: 0x7f0200cf
+			public const int mr_ic_play_light = 2130837711;
+			
+			// aapt resource value: 0x7f0200da
+			public const int notification_template_icon_bg = 2130837722;
+			
+			// aapt resource value: 0x7f0200d0
+			public const int right1 = 2130837712;
+			
+			// aapt resource value: 0x7f0200d1
+			public const int right2 = 2130837713;
+			
+			// aapt resource value: 0x7f0200d2
+			public const int right3 = 2130837714;
+			
+			// aapt resource value: 0x7f0200d3
+			public const int right4 = 2130837715;
+			
+			// aapt resource value: 0x7f0200d4
+			public const int right5 = 2130837716;
+			
+			// aapt resource value: 0x7f0200d5
+			public const int trasa = 2130837717;
+			
+			// aapt resource value: 0x7f0200d6
+			public const int trasa2 = 2130837718;
+			
+			// aapt resource value: 0x7f0200d7
+			public const int trasa3 = 2130837719;
+			
+			// aapt resource value: 0x7f0200d8
+			public const int trasa4 = 2130837720;
+			
+			// aapt resource value: 0x7f0200d9
+			public const int trasa5 = 2130837721;
 			
 			static Drawable()
 			{
@@ -3244,11 +3286,20 @@ namespace BlindDriver.Droid
 			// aapt resource value: 0x7f070000
 			public const int auth_google_play_services_client_google_display_name = 2131165184;
 			
+			// aapt resource value: 0x7f070054
+			public const int best_time = 2131165268;
+			
+			// aapt resource value: 0x7f070045
+			public const int blind_driver = 2131165253;
+			
 			// aapt resource value: 0x7f070043
 			public const int bottom_sheet_behavior = 2131165251;
 			
 			// aapt resource value: 0x7f070044
 			public const int character_counter_pattern = 2131165252;
+			
+			// aapt resource value: 0x7f07004a
+			public const int choose_race_read = 2131165258;
 			
 			// aapt resource value: 0x7f070018
 			public const int common_google_play_services_api_unavailable_text = 2131165208;
@@ -3337,6 +3388,45 @@ namespace BlindDriver.Droid
 			// aapt resource value: 0x7f07001e
 			public const int common_signin_button_text_long = 2131165214;
 			
+			// aapt resource value: 0x7f070050
+			public const int easy = 2131165264;
+			
+			// aapt resource value: 0x7f07004c
+			public const int end = 2131165260;
+			
+			// aapt resource value: 0x7f070053
+			public const int extreme = 2131165267;
+			
+			// aapt resource value: 0x7f070052
+			public const int hard = 2131165266;
+			
+			// aapt resource value: 0x7f070048
+			public const int instraction_content = 2131165256;
+			
+			// aapt resource value: 0x7f070046
+			public const int instruction = 2131165254;
+			
+			// aapt resource value: 0x7f070049
+			public const int introduction_read = 2131165257;
+			
+			// aapt resource value: 0x7f070055
+			public const int l1 = 2131165269;
+			
+			// aapt resource value: 0x7f070056
+			public const int l2 = 2131165270;
+			
+			// aapt resource value: 0x7f070057
+			public const int l3 = 2131165271;
+			
+			// aapt resource value: 0x7f070058
+			public const int l4 = 2131165272;
+			
+			// aapt resource value: 0x7f070059
+			public const int l5 = 2131165273;
+			
+			// aapt resource value: 0x7f070051
+			public const int medium = 2131165265;
+			
 			// aapt resource value: 0x7f07001f
 			public const int mr_button_content_description = 2131165215;
 			
@@ -3382,8 +3472,38 @@ namespace BlindDriver.Droid
 			// aapt resource value: 0x7f07002d
 			public const int mr_user_route_category_name = 2131165229;
 			
+			// aapt resource value: 0x7f07004d
+			public const int one = 2131165261;
+			
+			// aapt resource value: 0x7f07005a
+			public const int r1 = 2131165274;
+			
+			// aapt resource value: 0x7f07005b
+			public const int r2 = 2131165275;
+			
+			// aapt resource value: 0x7f07005c
+			public const int r3 = 2131165276;
+			
+			// aapt resource value: 0x7f07005d
+			public const int r4 = 2131165277;
+			
+			// aapt resource value: 0x7f07005e
+			public const int r5 = 2131165278;
+			
+			// aapt resource value: 0x7f070047
+			public const int race = 2131165255;
+			
+			// aapt resource value: 0x7f07004b
+			public const int start = 2131165259;
+			
 			// aapt resource value: 0x7f070041
 			public const int status_bar_notification_info_overflow = 2131165249;
+			
+			// aapt resource value: 0x7f07004f
+			public const int three = 2131165263;
+			
+			// aapt resource value: 0x7f07004e
+			public const int two = 2131165262;
 			
 			static String()
 			{
@@ -4195,6 +4315,9 @@ namespace BlindDriver.Droid
 			
 			// aapt resource value: 0x7f0c0003
 			public const int Theme_MediaRouter_LightControlPanel = 2131492867;
+			
+			// aapt resource value: 0x7f0c0172
+			public const int Theme_NoTitle = 2131493234;
 			
 			// aapt resource value: 0x7f0c010e
 			public const int ThemeOverlay_AppCompat = 2131493134;

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using BlindDriver.Models;
+using BlindDriver.Resources;
+
 namespace BlindDriver.ViewModel
 {
     public class RaceViewModel : INotifyPropertyChanged
@@ -17,7 +19,7 @@ namespace BlindDriver.ViewModel
 
         double x, y, z, dtimer = 0;
 
-        string speed, angle, timer, drivenMeters, command;
+        string speed, angle, timer, drivenMeters, command, turnImageName;
         public string Text { get; set; }
         public string SpeedText
         {
@@ -78,13 +80,25 @@ namespace BlindDriver.ViewModel
             }
         }
 
+        public string TurnImageName
+        {
+            get { return turnImageName; }
+            set
+            {
+                if (turnImageName == value)
+                    return;
+                turnImageName = value;
+                OnPropertyChanged("TurnImageName");
+            }
+        }
+
         public RaceViewModel()
         {
 
-            DependencyService.Get<ITextToSpeech>().Speak("Wybrałeś wyścig " + race.Name + ". Za 5 sekund nastąpi rozpoczęcie wyścigu.");
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown);
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
-                int timer = 5;
+                int timer = 3;
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
                 {
                     if (timer > 0)
@@ -95,7 +109,7 @@ namespace BlindDriver.ViewModel
                     }
                     else
                     {
-                        DependencyService.Get<ITextToSpeech>().Speak("Start!");
+                        DependencyService.Get<ITextToSpeech>().Speak(Resource.start);
                         startRace();
                         return false;
                     }
@@ -133,25 +147,27 @@ namespace BlindDriver.ViewModel
                         {
                             if (!turn.Handled)
                             {
-                                DependencyService.Get<ITextToSpeech>().Speak(turn.TurnType.ToString());
+                                DependencyService.Get<ITextToSpeech>().Speak(turn.TurnType);
                             }
-                            CommandText = turn.TurnType.ToString();
+                            CommandText = turn.TurnType;
+                            TurnImageName = turn.ImageName;
                             turn.Handled = true;
                             break;
                         }
                         else
                         {
+                            TurnImageName = "";
                             CommandText = "";
                         }
                     }
                     metres += (kmph * 1000 / 3600) / 10;
-                    DrivenMetersText = metres + " metrów";
+                    DrivenMetersText = metres + " " + Resource.meters;
                     return true;
 
                 }
                 else
                 {
-                    TimerText = "Uzyskany czas: " + dtimer.ToString("0.0") + "sekund";
+                    TimerText = Resource.your_time + dtimer.ToString("0.0") + Resource.seconds;
                     DependencyService.Get<ITextToSpeech>().Speak(TimerText);
                     metres = 0;
                     return false;

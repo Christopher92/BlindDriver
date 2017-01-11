@@ -5,8 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using BlindDriver.Resources;
 using Xamarin.Forms;
 
 namespace BlindDriver.Views
@@ -17,7 +16,7 @@ namespace BlindDriver.Views
         public HomePage()
         {
             InitializeComponent();
-            DependencyService.Get<ITextToSpeech>().Speak("Strona startowa");
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.introduction_read);
         }
 
         async void InstructionButtonClicked(object sender, System.EventArgs e)

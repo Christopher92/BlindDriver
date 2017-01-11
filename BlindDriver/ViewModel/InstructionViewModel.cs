@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlindDriver.Resources;
 using Xamarin.Forms;
 
 namespace BlindDriver.ViewModel
@@ -16,7 +17,7 @@ namespace BlindDriver.ViewModel
 
         public InstructionViewModel()
         {
-            Text = "Pierdolony test instrukcji.";
+            Text = Resource.instraction_content;
             DependencyService.Get<ITextToSpeech>().Speak(Text);
 
         }

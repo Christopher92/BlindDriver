@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlindDriver.Enums;
+﻿using System.Collections.Generic;
 
 namespace BlindDriver.Models
 {
@@ -11,9 +6,10 @@ namespace BlindDriver.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string BestTime { get; set; }
         public int Length { get; set; }
-        public int Level { get; set; }
-        public string ImageUrl { get; set; }
+        public string Difficulty { get; set; }
+        public string ImageName { get; set; }
         public IList<Turn> Turns { get; set; }
 
     }
