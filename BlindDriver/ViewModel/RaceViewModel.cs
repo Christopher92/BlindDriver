@@ -82,7 +82,7 @@ namespace BlindDriver.ViewModel
 
         public string TurnImageName
         {
-            get { return turnImageName; } 
+            get { return turnImageName; }
             set
             {
                 if (turnImageName == value)
@@ -95,10 +95,9 @@ namespace BlindDriver.ViewModel
         public RaceViewModel()
         {
 
-            DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown, false);
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown);
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
-                DependencyService.Get<IAudio>().PlayMp3File(filename.mp3);
                 int timer = 3;
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
                 {
@@ -134,7 +133,8 @@ namespace BlindDriver.ViewModel
         public void startRace()
         {
             int metres = 0;
-            int kmph = 0;
+            double kmph = 0;
+            double speedIncrease = 0;
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
                 dtimer += 0.1;
@@ -161,7 +161,7 @@ namespace BlindDriver.ViewModel
                             CommandText = "";
                         }
                     }
-                    metres += (kmph * 1000 / 3600) / 10;
+                    metres += Convert.ToInt32((kmph * 1000 / 3600) / 10);
                     DrivenMetersText = metres + " " + Resource.meters;
                     return true;
 
@@ -175,41 +175,56 @@ namespace BlindDriver.ViewModel
                 }
 
             });
-
+            int i = 100;
+            //double speedArray
             CrossDeviceMotion.Current.Start(MotionSensorType.Accelerometer, MotionSensorDelay.Ui);
-            CrossDeviceMotion.Current.SensorValueChanged += (s, a) =>
+            Device.StartTimer(TimeSpan.FromMilliseconds(500), () =>
             {
-                switch (a.SensorType)
+                CrossDeviceMotion.Current.SensorValueChanged += (s, a) =>
                 {
-                    case MotionSensorType.Accelerometer:
+                    switch (a.SensorType)
+                    {
+                        case MotionSensorType.Accelerometer:
 
-                        x = ((MotionVector)a.Value).X;
-                        y = ((MotionVector)a.Value).Y;
-                        z = ((MotionVector)a.Value).Z;
+                            x = ((MotionVector)a.Value).X;
+                            y = ((MotionVector)a.Value).Y;
+                            z = ((MotionVector)a.Value).Z < 0 ? 0 : ((MotionVector)a.Value).Z;
 
-                        kmph = Convert.ToInt32(z * 15);
-                        int curve = Convert.ToInt32(y * -7.0);
-                        if (kmph < 0) kmph = 0;
-                        if (kmph > 150) kmph = 150;
-                        if (x < 0) kmph = 150;
-                        SpeedText = kmph + "kmph";
+                            if (speedIncrease >= z)
+                            {
+                                kmph += z / 10;
+                            }
+                            else
+                            {
+                                kmph -= z / 10;
+                            }
+                            AngleText = z.ToString();
+                            speedIncrease = z;
+                            int curve = Convert.ToInt32(y * -7.5);
+                            if (kmph < 0) kmph = 0;
+                            if (kmph > 150) kmph = 150;
+                            if (x < 0) kmph = 150;
+                            SpeedText = Convert.ToInt32(kmph) + "kmph";
 
-                        if (curve >= -3 & curve <= 3)
-                        {
-                            AngleText = "Jazda prosto";
-                        }
-                        else if (curve > 3)
-                        {
-                            AngleText = "Skręt w lewo o " + curve + " stopni";
-                        }
-                        else
-                        {
-                            AngleText = "Skręt w prawo o " + curve * -1 + " stopni";
-                        }
+                            //if (curve >= -3 & curve <= 3)
+                            //{
+                            //    AngleText = "Jazda prosto";
+                            //}
+                            //else if (curve > 3)
+                            //{
+                            //    AngleText = "Skręt w lewo o " + curve + " stopni";
+                            //}
+                            //else
+                            //{
+                            //    AngleText = "Skręt w prawo o " + curve * -1 + " stopni";
+                            //}
 
-                        break;
-                }
-            };
+                            break;
+                    }
+                };
+                return true;
+            });
         }
+
     }
 }
