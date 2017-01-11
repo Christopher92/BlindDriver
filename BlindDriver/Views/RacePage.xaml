@@ -11,21 +11,19 @@
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
+
             </Label>
             <Label Text="{Binding TimerText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
+
             </Label>
             <Label Text="{Binding DrivenMetersText}"
                  FontSize="Large"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-            </Label>
-            <Label Text="{Binding AngleText}"
-                 FontSize="Large"
-                 HorizontalOptions="Center"
-                 VerticalOptions="Center">
+
             </Label>
             <Image Aspect="AspectFit">
               <Image.Source>
