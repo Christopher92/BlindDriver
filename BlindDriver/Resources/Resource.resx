@@ -198,6 +198,9 @@
   <data name="race" xml:space="preserve">
     <value>Race</value>
   </data>
+  <data name="RaceChooseDetails" xml:space="preserve">
+    <value>Race {0}. Difficulty {1}. Length {2} meters. Best time {3}</value>
+  </data>
   <data name="race_chosen" xml:space="preserve">
     <value>You chose a race</value>
   </data>

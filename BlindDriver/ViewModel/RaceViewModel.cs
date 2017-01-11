@@ -82,7 +82,7 @@ namespace BlindDriver.ViewModel
 
         public string TurnImageName
         {
-            get { return turnImageName; }
+            get { return turnImageName; } 
             set
             {
                 if (turnImageName == value)

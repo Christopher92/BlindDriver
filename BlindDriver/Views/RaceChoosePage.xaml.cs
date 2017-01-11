@@ -9,6 +9,14 @@ namespace BlindDriver
 {
     public partial class RaceChoosePage : CarouselPage
     {
+
+        protected override void OnCurrentPageChanged()
+        {
+            base.OnCurrentPageChanged();
+            var index = Children.IndexOf(CurrentPage);
+            RaceChooseViewModel.ReadRaceDetails(index);
+        }
+
         public RaceChoosePage()
         {
             InitializeComponent();

@@ -219,4 +219,7 @@
   <data name="your_time" xml:space="preserve">
     <value>Twój czas to</value>
   </data>
+  <data name="RaceChooseDetails" xml:space="preserve">
+    <value>Trasa {0}. Trudność {1}. Długość {2} metrów. Najlepszy czas {3}</value>
+  </data>
 </root>

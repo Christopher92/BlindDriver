@@ -2,7 +2,7 @@
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			  xmlns:resources="clr-namespace:BlindDriver.Resources;assembly=BlindDriver"
-        NavigationPage.HasNavigationBar="false"
+              NavigationPage.HasNavigationBar="false"
 			  x:Class="BlindDriver.RaceChoosePage">
     <CarouselPage.ItemTemplate>
         <DataTemplate>

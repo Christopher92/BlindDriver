@@ -2,17 +2,19 @@
 using System.Collections.ObjectModel;
 using BlindDriver.Models;
 using BlindDriver.Resources;
+using Xamarin.Forms;
+using System.Linq;
 
 namespace BlindDriver.ViewModel
 {
     public class RaceChooseViewModel
     {
-        public static ObservableCollection<Race> Races { get; set; }
+        public static List<Race> Races { get; set; }
 
         static RaceChooseViewModel()
         {
 
-            Races = new ObservableCollection<Race>
+            Races = new List<Race>
             {
                 new Race
                 {
@@ -557,6 +559,12 @@ namespace BlindDriver.ViewModel
             };
 
 
+        }
+        public static void ReadRaceDetails(int carouselPageIndex)
+        {
+            Race race = Races.Where(x => x.Id == carouselPageIndex + 1).First();
+            DependencyService.Get<ITextToSpeech>().Speak(string.Format(Resource.RaceChooseDetails, 
+                race.Name, race.Difficulty, race.Length, race.BestTime=="" ? "Brak" : race.BestTime));
         }
     }
 }

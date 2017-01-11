@@ -15,12 +15,12 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>BlindDriver.Droid</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
@@ -29,6 +29,16 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <Debugger>Xamarin</Debugger>
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EnableProguard>False</EnableProguard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -122,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\layout\" />
-    <Folder Include="Resources\values\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -152,9 +161,6 @@
     <AndroidAsset Include="Assets\MainPageOnStart.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\T1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\L3.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +168,60 @@
       <Project>{388f4a9d-83db-49d5-854c-eaeb3268f1a4}</Project>
       <Name>BlindDriver</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trasa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trasa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trasa3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trasa4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trasa5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-pl\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\NoTitleTheme.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

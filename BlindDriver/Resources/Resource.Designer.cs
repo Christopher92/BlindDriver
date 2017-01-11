@@ -314,6 +314,15 @@ namespace BlindDriver.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Race {0}. Difficulty {1}. Length {2} meters. Best time {3}.
+        /// </summary>
+        internal static string RaceChooseDetails {
+            get {
+                return ResourceManager.GetString("RaceChooseDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to seconds..
         /// </summary>
         internal static string seconds {

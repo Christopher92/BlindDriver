@@ -24,7 +24,7 @@ namespace BlindDriver.Droid
             if(speaker == null)
             {
                 speaker = new TextToSpeech(ctx, this);
-                speaker.SetSpeechRate(2);
+                //speaker.SetSpeechRate(2);
             }
             else
             {
