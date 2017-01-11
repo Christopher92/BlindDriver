@@ -18,7 +18,7 @@ namespace BlindDriver.ViewModel
         public InstructionViewModel()
         {
             Text = Resource.instraction_content;
-            DependencyService.Get<ITextToSpeech>().Speak(Text);
+            DependencyService.Get<ITextToSpeech>().Speak(Text, false);
 
         }
     }

@@ -143,7 +143,7 @@ namespace BlindDriver.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Blind Driver is a game that simulates a WCR racing. The player has to finish a race track as fast as possible. To accelerate tilt the device forward. To make a turn - turn the divice left or right as a steering wheel. During the race the pilot will be instructing the player of every turn with it&apos;s severity. And so a &quot;Right one&quot; turn is the mildest right turn while a &quot;Left five&quot; turn is the most severe left turn..
+        ///   Looks up a localized string similar to The Blind Driver is a game that simulates a WCR racing. The player has to finish a race track as fast as possible. To accelerate tilt the device forward. To make a turn - turn the device left or right as a steering wheel. During the race the pilot will be instructing the player of every turn with it&apos;s severity. And so a &quot;Right one&quot; turn is the mildest right turn while a &quot;Left five&quot; turn is the most severe left turn..
         /// </summary>
         internal static string instraction_content {
             get {

@@ -145,7 +145,7 @@
     <value>Hard</value>
   </data>
   <data name="instraction_content" xml:space="preserve">
-    <value>The Blind Driver is a game that simulates a WCR racing. The player has to finish a race track as fast as possible. To accelerate tilt the device forward. To make a turn - turn the divice left or right as a steering wheel. During the race the pilot will be instructing the player of every turn with it's severity. And so a "Right one" turn is the mildest right turn while a "Left five" turn is the most severe left turn.</value>
+    <value>The Blind Driver is a game that simulates a WCR racing. The player has to finish a race track as fast as possible. To accelerate tilt the device forward. To make a turn - turn the device left or right as a steering wheel. During the race the pilot will be instructing the player of every turn with it's severity. And so a "Right one" turn is the mildest right turn while a "Left five" turn is the most severe left turn.</value>
   </data>
   <data name="instruction" xml:space="preserve">
     <value>Instruction</value>

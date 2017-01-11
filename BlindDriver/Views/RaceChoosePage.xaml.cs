@@ -20,7 +20,7 @@ namespace BlindDriver
         public RaceChoosePage()
         {
             InitializeComponent();
-            DependencyService.Get<ITextToSpeech>().Speak(Resource.choose_race_read);
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.choose_race_read, false);
             ItemsSource = RaceChooseViewModel.Races;
         }
         void OnTapGestureRecognizerTapped(object sender, System.EventArgs args)

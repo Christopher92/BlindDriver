@@ -16,7 +16,7 @@ namespace BlindDriver.Views
         public HomePage()
         {
             InitializeComponent();
-            DependencyService.Get<ITextToSpeech>().Speak(Resource.introduction_read);
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.introduction_read, false);
         }
 
         async void InstructionButtonClicked(object sender, System.EventArgs e)
