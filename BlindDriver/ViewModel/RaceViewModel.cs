@@ -94,7 +94,6 @@ namespace BlindDriver.ViewModel
 
         public RaceViewModel()
         {
-
             DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown, false);
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {

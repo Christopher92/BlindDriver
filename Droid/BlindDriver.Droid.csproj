@@ -155,7 +155,7 @@
     <AndroidAsset Include="Assets\PolishLanguageChose.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\PolishLanguageChose.mp3" />
+    <AndroidResource Include="Resources\raw\PolishLanguageChose.mp3" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\MainPageOnStart.mp3" />
@@ -224,10 +224,10 @@
     <AndroidResource Include="Resources\values\NoTitleTheme.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\car_run.mp3" />
+    <AndroidResource Include="Resources\raw\car_run.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\car_start.mp3" />
+    <AndroidResource Include="Resources\raw\car_start.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
