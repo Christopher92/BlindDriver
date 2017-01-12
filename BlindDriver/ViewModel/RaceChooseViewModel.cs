@@ -33,25 +33,32 @@ namespace BlindDriver.ViewModel
                         {
                             TurnType = Resource.r3,
                             OnMeter = 175,
-                            ImageName = "right3.png"
+                            ImageName = "right3.png",
+                            Value = 3
                         },
                         new Turn
                         {
                             TurnType = Resource.r3,
                             OnMeter = 325,
-                            ImageName = "right3.png"
+                            ImageName = "right3.png",
+                            Value = 3
+
                         },
                         new Turn
                         {
                             TurnType = Resource.r3,
                             OnMeter = 675,
-                            ImageName = "right3.png"
+                            ImageName = "right3.png",
+                            Value = 3
+
                         },
                         new Turn
                         {
                             TurnType = Resource.r3,
                             OnMeter = 825,
-                            ImageName = "right3.png"
+                            ImageName = "right3.png",
+                            Value = 3
+
                         }
                     }
                 },

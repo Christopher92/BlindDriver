@@ -17,6 +17,8 @@ namespace BlindDriver.ViewModel
         public static bool isBound { get; set; }
         public static Race race { get; set; }
 
+        public static int DriverTurn { get; set; }
+
         double x, y, z, dtimer = 0;
 
         string speed, angle, timer, drivenMeters, command, turnImageName;
@@ -96,6 +98,8 @@ namespace BlindDriver.ViewModel
         {
 
             DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown);
+            DependencyService.Get<IAudio>().PlayMp3File("L3.mp3");
+
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
                 int timer = 3;
@@ -135,6 +139,8 @@ namespace BlindDriver.ViewModel
             int metres = 0;
             double kmph = 0;
             double speedIncrease = 0;
+            int turnScore = 0;
+            int helper = 0;
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
                 dtimer += 0.1;
@@ -144,8 +150,34 @@ namespace BlindDriver.ViewModel
                 {
                     foreach (var turn in race.Turns)
                     {
+
                         if (metres >= turn.OnMeter - 50 && metres <= turn.OnMeter)
                         {
+                            if (!turn.Handled)
+                            {
+                                if (DriverTurn > 56)
+                                {
+                                    helper = 5;
+                                }
+                                else if (DriverTurn > 42)
+                                {
+                                    helper = 4;
+                                }
+                                else if (DriverTurn > 28)
+                                {
+                                    helper = 3;
+                                }
+                                else if (DriverTurn > 14)
+                                {
+                                    helper = 2;
+                                }
+                                else
+                                {
+                                    helper = 1;
+                                }
+                            }
+
+
                             if (!turn.Handled)
                             {
                                 DependencyService.Get<ITextToSpeech>().Speak(turn.TurnType);
@@ -157,6 +189,13 @@ namespace BlindDriver.ViewModel
                         }
                         else
                         {
+                            if (helper != 0)
+                            {
+                                turnScore = Math.Abs(helper - turn.Value.Value);
+                                kmph -= turnScore * 40;
+                                if (kmph < 0) kmph = 0;
+                                helper = 0;
+                            }
                             TurnImageName = "";
                             CommandText = "";
                         }
@@ -175,55 +214,55 @@ namespace BlindDriver.ViewModel
                 }
 
             });
-            int i = 100;
-            //double speedArray
+            int i = 0;
+            int gear = 0;
+            double acceleration;
+            int activeGear = 0;
+            bool fast = true;
             CrossDeviceMotion.Current.Start(MotionSensorType.Accelerometer, MotionSensorDelay.Ui);
-            Device.StartTimer(TimeSpan.FromMilliseconds(500), () =>
+
+            CrossDeviceMotion.Current.SensorValueChanged += (s, a) =>
             {
-                CrossDeviceMotion.Current.SensorValueChanged += (s, a) =>
+                switch (a.SensorType)
                 {
-                    switch (a.SensorType)
-                    {
-                        case MotionSensorType.Accelerometer:
+                    case MotionSensorType.Accelerometer:
 
-                            x = ((MotionVector)a.Value).X;
-                            y = ((MotionVector)a.Value).Y;
-                            z = ((MotionVector)a.Value).Z < 0 ? 0 : ((MotionVector)a.Value).Z;
+                        x = ((MotionVector)a.Value).X;
+                        y = ((MotionVector)a.Value).Y;
+                        z = ((MotionVector)a.Value).Z < 0 ? 0 : ((MotionVector)a.Value).Z;
+                        int angle = Convert.ToInt32(y * -7.2);
+                        DriverTurn = angle;
 
-                            if (speedIncrease >= z)
-                            {
-                                kmph += z / 10;
-                            }
-                            else
-                            {
-                                kmph -= z / 10;
-                            }
-                            AngleText = z.ToString();
-                            speedIncrease = z;
-                            int curve = Convert.ToInt32(y * -7.5);
-                            if (kmph < 0) kmph = 0;
-                            if (kmph > 150) kmph = 150;
-                            if (x < 0) kmph = 150;
-                            SpeedText = Convert.ToInt32(kmph) + "kmph";
+                        gear = Convert.ToInt32(z / 2);
+                        acceleration = z / 15;
 
-                            //if (curve >= -3 & curve <= 3)
-                            //{
-                            //    AngleText = "Jazda prosto";
-                            //}
-                            //else if (curve > 3)
-                            //{
-                            //    AngleText = "Skręt w lewo o " + curve + " stopni";
-                            //}
-                            //else
-                            //{
-                            //    AngleText = "Skręt w prawo o " + curve * -1 + " stopni";
-                            //}
+                        if (gear > activeGear)
+                        {
+                            fast = true;
+                            kmph += acceleration;
+                        }
+                        else if (gear < activeGear)
+                        {
+                            fast = false;
+                            kmph -= 1 / acceleration;
+                        }
+                        else if (gear == activeGear && fast)
+                        {
+                            kmph += acceleration;
+                        }
+                        else if (gear == activeGear && !fast)
+                        {
+                            kmph -= 1 / acceleration;
+                        }
+                        activeGear = gear;
 
-                            break;
-                    }
-                };
-                return true;
-            });
+
+                        if (kmph < 0) kmph = 0;
+                        if (kmph > 200) kmph = 200;
+                        SpeedText = Convert.ToInt32(kmph) + "kmph";
+                        break;
+                }
+            };
         }
 
     }
