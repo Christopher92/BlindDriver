@@ -11,5 +11,7 @@ namespace BlindDriver.Models
         public bool Handled { get; set; }
 
         public string ImageName { get; set; }
+
+        public int? Value { get; set; }
     }
 }
