@@ -124,7 +124,7 @@
     <value>Blind Driver</value>
   </data>
   <data name="choose_race_read" xml:space="preserve">
-    <value>Choose a race. Swipe right and left to change.</value>
+    <value>Swipe right and left to change the race.</value>
   </data>
   <data name="countdown" xml:space="preserve">
     <value>Countdown starts now.</value>
@@ -218,5 +218,11 @@
   </data>
   <data name="your_time" xml:space="preserve">
     <value>Your time is</value>
+  </data>
+  <data name="new_record" xml:space="preserve">
+    <value>This is the new record!</value>
+  </data>
+  <data name="not_set" xml:space="preserve">
+    <value>Not set</value>
   </data>
 </root>

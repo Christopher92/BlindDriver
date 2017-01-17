@@ -6,7 +6,7 @@ namespace BlindDriver.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string BestTime { get; set; }
+        public double BestTime { get; set; }
         public int Length { get; set; }
         public string Difficulty { get; set; }
         public string ImageName { get; set; }

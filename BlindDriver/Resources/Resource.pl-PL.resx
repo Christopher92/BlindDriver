@@ -124,7 +124,7 @@
     <value>Niewidomy Kierowca</value>
   </data>
   <data name="choose_race_read" xml:space="preserve">
-    <value>Wybierz wyścig. Przesuwaj palce w prawo i lewo aby zmienić.</value>
+    <value>Przesuwaj palcem w prawo i lewo aby zmienić wyścig.</value>
   </data>
   <data name="easy" xml:space="preserve">
     <value>Łatwy</value>
@@ -221,5 +221,11 @@
   </data>
   <data name="RaceChooseDetails" xml:space="preserve">
     <value>Trasa {0}. Trudność {1}. Długość {2} metrów. Najlepszy czas {3}</value>
+  </data>
+  <data name="new_record" xml:space="preserve">
+    <value>Nowy rekord!</value>
+  </data>
+  <data name="not_set" xml:space="preserve">
+    <value>nie ustalony</value>
   </data>
 </root>

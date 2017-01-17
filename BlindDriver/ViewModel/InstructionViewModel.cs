@@ -19,17 +19,7 @@ namespace BlindDriver.ViewModel
         {
             Text = Resource.instraction_content;
 
-
-            if (!DependencyService.Get<IFile>().FileExists("scores.txt"))
-            {
-                DependencyService.Get<IFile>().SaveText("scores.txt", "");
-            }
-            Text = DependencyService.Get<IFile>().ReadText("scores.txt");
-            DependencyService.Get<IFile>().SaveText("scores.txt", "DUPA");
-            Text = DependencyService.Get<IFile>().ReadText("scores.txt");
-
-            DependencyService.Get<ITextToSpeech>().Speak(Text);
-
+            DependencyService.Get<ITextToSpeech>().Speak(Text, false);
         }
     }
 }

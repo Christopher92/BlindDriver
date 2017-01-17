@@ -15,13 +15,15 @@ namespace BlindDriver.Droid
 		public void PlayMp3File(string fileName)
 		{
             var player = new MediaPlayer();
+            player.Reset();
             var fd = global::Android.App.Application.Context.Assets.OpenFd(fileName);
             player.Prepared += (s, e) =>
             {
                 player.Start();
             };
-            player.SetDataSource(fd.FileDescriptor, fd.StartOffset, fd.Length);
+            player.SetDataSource(fd.FileDescriptor, fd.StartOffset, fd.Length+10000);
             player.Prepare();
+            fd.Close();
         }
 	}
 }

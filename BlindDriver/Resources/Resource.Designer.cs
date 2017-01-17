@@ -80,7 +80,7 @@ namespace BlindDriver.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a race. Swipe right and left to change..
+        ///   Looks up a localized string similar to Swipe right and left to change the race..
         /// </summary>
         internal static string choose_race_read {
             get {
@@ -238,6 +238,24 @@ namespace BlindDriver.Resources {
         internal static string meters {
             get {
                 return ResourceManager.GetString("meters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the new record!.
+        /// </summary>
+        internal static string new_record {
+            get {
+                return ResourceManager.GetString("new_record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not set.
+        /// </summary>
+        internal static string not_set {
+            get {
+                return ResourceManager.GetString("not_set", resourceCulture);
             }
         }
         

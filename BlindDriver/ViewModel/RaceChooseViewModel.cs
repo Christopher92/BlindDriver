@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using BlindDriver.Models;
@@ -16,6 +17,20 @@ namespace BlindDriver.ViewModel
 
         static RaceChooseViewModel()
         {
+            if(!DependencyService.Get<IFile>().FileExists("scores.txt"))
+                DependencyService.Get<IFile>().SaveText("scores.txt", "100 150 300 200 350");
+            
+            var scores = DependencyService.Get<IFile>().ReadText("scores.txt");
+
+            string[] records = scores.Split(' ');
+            int i = 0;
+            double[] bestTimes = new double[5];
+
+            foreach (var record in records)
+            {
+                bestTimes[i] = double.Parse(record);
+                i++;
+            }
 
             Races = new List<Race>
             {
@@ -23,7 +38,7 @@ namespace BlindDriver.ViewModel
                 {
                     Id = 1,
                     Name = "Pinamar",
-                    BestTime = "",
+                    BestTime = bestTimes[0],
                     Length = 1000,
                     Difficulty = Resource.easy,
                     ImageName = "trasa.png",
@@ -32,13 +47,13 @@ namespace BlindDriver.ViewModel
                         new Turn
                         {
                             TurnType = Resource.r3,
-                            OnMeter = 175,
+                            OnMeter = 275,
                             ImageName = "right3.png"
                         },
                         new Turn
                         {
                             TurnType = Resource.r3,
-                            OnMeter = 325,
+                            OnMeter = 425,
                             ImageName = "right3.png"
                         },
                         new Turn
@@ -59,7 +74,7 @@ namespace BlindDriver.ViewModel
                 {
                     Id = 2,
                     Name = "Rio Gallegos",
-                    BestTime = "",
+                    BestTime = bestTimes[1],
                     Length = 1500,
                     Difficulty = Resource.medium,
                     ImageName =    "trasa2.png",
@@ -137,7 +152,7 @@ namespace BlindDriver.ViewModel
                 {
                     Id = 3,
                     Name = "Gran Premio",
-                    BestTime = "",
+                    BestTime = bestTimes[2],
                     Length = 3000,
                     Difficulty = Resource.hard,
                     ImageName = "trasa3.png",
@@ -287,8 +302,8 @@ namespace BlindDriver.ViewModel
                 {
                     Id = 4,
                     Name = "Las Flores",
-                    BestTime = "",
-                    Length = 2200,
+                    BestTime = bestTimes[3],
+                    Length = 2000,
                     Difficulty = Resource.hard,
                     ImageName = "trasa4.png",
                     Turns = new List<Turn>
@@ -374,7 +389,7 @@ namespace BlindDriver.ViewModel
                         new Turn
                         {
                             TurnType = Resource.l3,
-                            OnMeter = 1900,
+                            OnMeter = 1800,
                             ImageName = "left3.png"
                         }
                     }
@@ -383,8 +398,8 @@ namespace BlindDriver.ViewModel
                 {
                     Id = 5,
                     Name = "Puerto Madero",
-                    BestTime = "",
-                    Length = 2800,
+                    BestTime = bestTimes[4],
+                    Length = 3000,
                     Difficulty = Resource.extreme,
                     ImageName = "trasa5.png",
                     Turns = new List<Turn>
@@ -527,36 +542,6 @@ namespace BlindDriver.ViewModel
                             OnMeter = 2870,
                             ImageName = "left3.png"
                         },
-                        new Turn
-                        {
-                            TurnType = Resource.r4,
-                            OnMeter = 2100,
-                            ImageName = "right4.png"
-                        },
-                        new Turn
-                        {
-                            TurnType = Resource.l1,
-                            OnMeter = 2200,
-                            ImageName = "left1.png"
-                        },
-                        new Turn
-                        {
-                            TurnType = Resource.r3,
-                            OnMeter = 2300,
-                            ImageName = "right3.png"
-                        },
-                        new Turn
-                        {
-                            TurnType = Resource.l5,
-                            OnMeter = 2400,
-                            ImageName = "left5.png"
-                        },
-                        new Turn
-                        {
-                            TurnType = Resource.r4,
-                            OnMeter = 2550,
-                            ImageName = "right4.png"
-                        }
                     }
                 }
             };
@@ -567,7 +552,8 @@ namespace BlindDriver.ViewModel
         {
             Race race = Races.Where(x => x.Id == carouselPageIndex + 1).First();
             DependencyService.Get<ITextToSpeech>().Speak(string.Format(Resource.RaceChooseDetails, 
-                race.Name, race.Difficulty, race.Length, race.BestTime=="" ? "Brak" : race.BestTime),false);
+                race.Name, race.Difficulty, race.Length, race.BestTime.ToString() == "0" ? Resource.not_set : race.BestTime + " " + Resource.seconds),false);
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.choose_race_read);
         }
     }
 }

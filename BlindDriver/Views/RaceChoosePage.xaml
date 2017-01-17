@@ -61,7 +61,7 @@
                             <Label Grid.Row="2" Grid.Column="0" Text="{resources:Translate best_time}" FontSize="Medium" />
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Difficulty}" FontSize="Medium" />
                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding Length}" FontSize="Medium" />
-                            <Label Grid.Row="2" Grid.Column="1" Text="Funkc. nie dodana" FontSize="Medium" />
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding BestTime}" FontSize="Medium" />
                         </Grid>
                 </StackLayout>
                 </Grid>

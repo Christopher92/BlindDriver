@@ -95,7 +95,7 @@ namespace BlindDriver.ViewModel
         public RaceViewModel()
         {
 
-            DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + race.Name + ". " + Resource.countdown);
+            DependencyService.Get<ITextToSpeech>().Speak(Resource.race_chosen + " " + race.Name + ". " + Resource.countdown, false);
             Device.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
                 int timer = 3;
@@ -103,6 +103,7 @@ namespace BlindDriver.ViewModel
                 {
                     if (timer > 0)
                     {
+                        DependencyService.Get<IAudio>().PlayMp3File("car_start.mp3");
                         DependencyService.Get<ITextToSpeech>().Speak(timer.ToString());
                         timer -= 1;
                         return true;
@@ -148,7 +149,7 @@ namespace BlindDriver.ViewModel
                         {
                             if (!turn.Handled)
                             {
-                                DependencyService.Get<ITextToSpeech>().Speak(turn.TurnType);
+                                DependencyService.Get<ITextToSpeech>().Speak(turn.TurnType, false);
                             }
                             CommandText = turn.TurnType;
                             TurnImageName = turn.ImageName;
@@ -168,8 +169,19 @@ namespace BlindDriver.ViewModel
                 }
                 else
                 {
-                    TimerText = Resource.your_time + dtimer.ToString("0.0") + Resource.seconds;
+                    dtimer = Math.Round(dtimer, 1);
+                    TimerText = Resource.your_time + " " + dtimer.ToString("0.0") + " " + Resource.seconds;
                     DependencyService.Get<ITextToSpeech>().Speak(TimerText);
+
+                    if (race.BestTime == 0 || race.BestTime > dtimer)
+                    {
+                        var scores = DependencyService.Get<IFile>().ReadText("scores.txt");
+                        scores = scores.Replace(race.BestTime.ToString(), dtimer.ToString("0.0"));
+                        DependencyService.Get<IFile>().SaveText("scores.txt", scores);
+
+                        DependencyService.Get<ITextToSpeech>().Speak(Resource.new_record);
+                        race.BestTime = dtimer;
+                    }
                     metres = 0;
                     return false;
                 }
